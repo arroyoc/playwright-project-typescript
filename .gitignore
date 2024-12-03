@@ -9,3 +9,7 @@ dist/
 
 # Environment files
 .env
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
