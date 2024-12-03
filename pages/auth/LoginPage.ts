@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../base/BasePage';
 
 export class LoginPage extends BasePage {
   private emailField: Locator;
@@ -17,10 +17,6 @@ export class LoginPage extends BasePage {
     this.signInButton = this.page.locator('#login-submit');
     this.errorMessage = this.page.locator('#login-error');
     this.signUpLink = this.page.locator('#signup-link');
-  }
-
-  async navigate() {
-    await this.page.goto('http://localhost:3000/playground/auth/login');
   }
 
   async enterEmail(email: string) {

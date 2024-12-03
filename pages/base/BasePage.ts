@@ -7,8 +7,9 @@ export class BasePage {
     this.page = page;
   }
 
-  async navigateTo(url: string) {
-    await this.page.goto(url);
+  async navigateTo(relativeUrl: string) {
+    const baseUrl = 'http://localhost:3000'; // Use a base URL for all pages
+    await this.page.goto(`${baseUrl}${relativeUrl}`);
   }
 
   async waitForElement(locator: string, timeout: number = 5000) {

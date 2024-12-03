@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../base/BasePage';
 
 export class SignedInDashboardPage extends BasePage {
   private dashboardContainer: Locator;
