@@ -38,4 +38,11 @@ export class SignupPage extends BasePage {
   async clickLoginLink() {
     await this.loginLink.click();
   }
+
+  async signUp(email: string, password: string) {
+    await this.navigateTo('/playground/auth/signup'); // Navigate to the sign-up page
+    await this.emailField.fill(email); // Fill email
+    await this.passwordField.fill(password); // Fill password
+    await this.signUpButton.click(); // Click sign up
+  }
 }

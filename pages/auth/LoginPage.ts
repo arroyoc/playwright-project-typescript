@@ -44,8 +44,5 @@ export class LoginPage extends BasePage {
     await this.emailField.fill(email); // Fill email
     await this.passwordField.fill(password); // Fill password
     await this.signInButton.click(); // Click sign in
-  
-    // Optional: Wait for URL change or dashboard indicator
-    // await this.page.waitForURL('**/playground/auth/dashboard', { timeout: 10000 });
   }
 }
