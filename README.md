@@ -14,31 +14,8 @@ The base URL for the application under test is: [https://arroyoautomation.com](h
 - **Cross-Browser Testing**: Compatible with Chromium, Firefox, and WebKit.
 - **HTML Reporting**: Generates detailed test reports for debugging and analysis.
 
-## Project Structure
+----
 
-```plaintext
-Playwright-Project/
-├── pages/
-│   ├── auth/
-│   │   ├── LoginPage.ts
-│   │   ├── SignupPage.ts
-│   ├── dashboard/
-│   │   └── SignedInDashboardPage.ts
-├── tests/
-│   ├── auth/
-│   │   ├── signupTests.spec.ts
-│   │   ├── loginTests.spec.ts
-│   ├── dashboard/
-│   │   └── dashboardTests.spec.ts
-├── playwright.config.ts
-├── README.md
-└── package.json
-
----
-
-### **Section 4: Prerequisites**
-
-```markdown
 ## Prerequisites
 
 - Node.js (>=16.x)
