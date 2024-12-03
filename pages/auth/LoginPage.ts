@@ -38,4 +38,14 @@ export class LoginPage extends BasePage {
   async clickSignUp() {
     await this.signUpLink.click();
   }
+
+  async signIn(email: string, password: string) {
+    await this.navigateTo('/playground/auth/login'); // Navigate to the login page
+    await this.emailField.fill(email); // Fill email
+    await this.passwordField.fill(password); // Fill password
+    await this.signInButton.click(); // Click sign in
+  
+    // Optional: Wait for URL change or dashboard indicator
+    // await this.page.waitForURL('**/playground/auth/dashboard', { timeout: 10000 });
+  }
 }

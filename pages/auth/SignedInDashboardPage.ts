@@ -31,7 +31,14 @@ export class SignedInDashboardPage extends BasePage {
     await this.signOutButton.click();
   }
 
-  async isDashboardVisible() {
-    return this.dashboardContainer.isVisible();
+  async isDashboardVisible(timeout: number = 10000) {
+    try {
+      // Wait for the dashboard container to be visible within the given timeout
+      await this.dashboardContainer.waitFor({ state: 'visible', timeout });
+      return true;
+    } catch {
+      // If the element is not visible within the timeout, return false
+      return false;
+    }
   }
 }

@@ -15,4 +15,8 @@ export class BasePage {
   async waitForElement(locator: string, timeout: number = 5000) {
     await this.page.locator(locator).waitFor({ timeout });
   }
+
+  async waitForElementVisible(locator: string, timeout: number = 5000) {
+    await this.page.locator(locator).waitFor({ state: 'visible', timeout });
+  }
 }
