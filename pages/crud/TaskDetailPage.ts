@@ -56,4 +56,17 @@ export class TaskDetailPage extends BasePage {
   async isTaskDetailVisible(): Promise<boolean> {
     return this.header.isVisible();
   }
+
+  async verifyTaskId(expectedTaskId: string, timeout: number = 5000) {
+    await this.taskId.waitFor({ state: 'visible', timeout }); // Wait for the Task ID to appear
+    const actualTaskId = await this.getTaskId();
+    if (actualTaskId !== expectedTaskId) {
+      throw new Error(`Expected Task ID: ${expectedTaskId}, but got: ${actualTaskId}`);
+    }
+  }
+
+  async waitForDeleteButton(timeout: number = 5000) {
+    await this.deleteTaskButton.waitFor({ state: 'visible', timeout }); // Wait for visibility
+    await this.deleteTaskButton.isEnabled(); // Ensure the button is enabled before clicking
+  }
 }

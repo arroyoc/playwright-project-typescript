@@ -28,7 +28,8 @@ export class CRUDDashboardPage extends BasePage {
   }
 
   async searchTask(query: string) {
-    await this.searchInput.fill(query);
+    await this.searchInput.
+    fill(query);
     await this.searchInput.press('Enter');
   }
 
@@ -42,6 +43,11 @@ export class CRUDDashboardPage extends BasePage {
   async selectTaskById(taskId: string) {
     const taskRow = this.page.locator(`#task-row-${taskId}`);
     await taskRow.click();
+  }
+
+  async waitForTaskToBeVisible(taskId: string, timeout: number = 10000) {
+    const taskRowLocator = `#task-row-${taskId}`;
+    await this.waitForElementVisible(taskRowLocator, timeout);
   }
 
   async isNoTasksMessageVisible(): Promise<boolean> {

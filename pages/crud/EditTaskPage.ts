@@ -31,6 +31,12 @@ export class EditTaskPage extends BasePage {
     this.loadingMessage = this.page.locator('#edit-task-loading');
   }
 
+  async enterTaskDetails(title: string, description: string, status: 'Pending' | 'In Progress' | 'Completed') {
+    await this.titleInput.fill(title);
+    await this.descriptionInput.fill(description);
+    await this.statusDropdown.selectOption(status);
+  }
+
   async waitForPageToLoad() {
     await this.loadingMessage.waitFor({ state: 'hidden' }); // Wait until the loading message disappears
     await this.header.waitFor({ state: 'visible' }); // Wait until the page header is visible
