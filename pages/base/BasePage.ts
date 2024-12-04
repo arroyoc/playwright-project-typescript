@@ -8,8 +8,8 @@ export class BasePage {
   }
 
   async navigateTo(relativeUrl: string) {
-    // const baseUrl = 'https://arroyoautomation.com'; // Use a base URL for all pages
-    const baseUrl = 'http://localhost:3000';
+    const baseUrl = 'https://arroyoautomation.com'; // Use a base URL for all pages
+    // const baseUrl = 'http://localhost:3000';
     await this.page.goto(`${baseUrl}${relativeUrl}`);
   }
 
