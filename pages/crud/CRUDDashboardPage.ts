@@ -8,6 +8,7 @@ export class CRUDDashboardPage extends BasePage {
   private tasksTable: Locator;
   private taskRows: Locator;
   private noTasksMessage: Locator;
+  private deleteAllTasksButton: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -17,6 +18,7 @@ export class CRUDDashboardPage extends BasePage {
     this.tasksTable = this.page.locator('#tasks-table');
     this.taskRows = this.page.locator('tbody tr'); // Targets rows in the task table
     this.noTasksMessage = this.page.locator('#no-tasks-message');
+    this.deleteAllTasksButton = this.page.locator('#delete-all-tasks-button');
   }
 
   async verifyDashboardIsVisible(): Promise<boolean> {
@@ -52,5 +54,9 @@ export class CRUDDashboardPage extends BasePage {
 
   async isNoTasksMessageVisible(): Promise<boolean> {
     return this.noTasksMessage.isVisible();
+  }
+
+  async clickDeleteAllTasks() {
+    await this.deleteAllTasksButton.click();
   }
 }
